@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Programme complet du AfriConnect Summit 2026 - 3 jours de conférences, ateliers et networking.">
     <title>Programme - AfriConnect Summit 2026</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="navbar">
+
+    <!--  HEADER / NAVBAR  -->
+    <header class="navbar" role="navigation" aria-label="Navigation principale">
         <nav class="navbar-container">
             <div class="navbar-brand">
                 <a href="index.html">
@@ -19,40 +25,256 @@
                     <span>AfriConnect <span class="brand-year">2026</span></span>
                 </a>
             </div>
-            <button class="navbar-toggler" aria-label="Menu">
+            
+            <button class="navbar-toggler" aria-label="Menu hamburger" aria-expanded="false">
                 <i class="bi bi-list"></i>
             </button>
+            
             <ul class="navbar-menu">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="programme.html" class="active">Programme</a></li>
                 <li><a href="intervenants.html">Intervenants</a></li>
                 <li><a href="contact.html">Inscription</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Mode sombre">
+            
+            <button class="theme-toggle" aria-label="Basculer le mode sombre/clair">
                 <i class="bi bi-moon-fill"></i>
             </button>
         </nav>
     </header>
-
     <main>
-        <section class="page-hero">
+        
+        <!--  SECTION HERO  -->
+        <section class="page-hero" aria-label="Bannière du programme">
             <div class="page-hero-content">
                 <h1>Programme <span>2026</span></h1>
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
                     <a href="index.html">Accueil</a>
                     <i class="bi bi-chevron-right"></i>
                     <span>Programme</span>
                 </nav>
             </div>
         </section>
+
+        <!--  ONGLETS PROGRAMME  -->
+        <section class="schedule" aria-label="Programme des conférences">
+            <div class="container">
+                <h2 class="section-title">Le programme en <span>détail</span></h2>
+                <p class="section-subtitle">3 jours d'innovation et de partage</p>
+                
+                <!-- Onglets -->
+                <div class="tabs" role="tablist" aria-label="Jours de la conférence">
+                    <button class="tab-btn active" data-day="day1" role="tab" aria-selected="true">
+                        <i class="bi bi-calendar-day"></i> Jour 1 · 26 Nov
+                    </button>
+                    <button class="tab-btn" data-day="day2" role="tab" aria-selected="false">
+                        <i class="bi bi-calendar-day"></i> Jour 2 · 27 Nov
+                    </button>
+                    <button class="tab-btn" data-day="day3" role="tab" aria-selected="false">
+                        <i class="bi bi-calendar-day"></i> Jour 3 · 28 Nov
+                    </button>
+                </div>
+                
+                <!-- Contenu des onglets -->
+                <div class="tab-content">
+                    <!-- Jour 1 -->
+                    <div class="tab-pane active" id="day1" role="tabpanel">
+                        <h3>Jour 1 - Innovation & Digital</h3>
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Heure</th>
+                                    <th>Session</th>
+                                    <th>Intervenant</th>
+                                    <th>Salle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09:00 - 10:00</td>
+                                    <td><strong>Keynote : L'Afrique digitale de demain</strong></td>
+                                    <td>Dr. Amina Diallo</td>
+                                    <td>Grande Salle</td>
+                                </tr>
+                                <tr>
+                                    <td>10:15 - 11:45</td>
+                                    <td><strong>IA éthique pour le développement</strong></td>
+                                    <td>Prof. Mamadou Sy</td>
+                                    <td>Salle Boileau</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00 - 13:30</td>
+                                    <td><strong>Fintech : révolution bancaire</strong></td>
+                                    <td>Ibrahim DaCruz Mensah</td>
+                                    <td>Salle Senghor</td>
+                                </tr>
+                                <tr>
+                                    <td>14:30 - 16:00</td>
+                                    <td><strong>Startups : du MVP à la scale-up</strong></td>
+                                    <td>Dr. David Adeleke</td>
+                                    <td>Salle LatDior</td>
+                                </tr>
+                                <tr>
+                                    <td>16:15 - 18:00</td>
+                                    <td><strong>Networking & Cocktail</strong></td>
+                                    <td>Tous les participants</td>
+                                    <td>Foyer</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Jour 2 -->
+                    <div class="tab-pane" id="day2" role="tabpanel">
+                        <h3>Jour 2 - Business & Entrepreneurship</h3>
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Heure</th>
+                                    <th>Session</th>
+                                    <th>Intervenant</th>
+                                    <th>Salle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09:00 - 10:00</td>
+                                    <td><strong>Le leadership africain</strong></td>
+                                    <td>Sarah Aidara</td>
+                                    <td>Grande Salle</td>
+                                </tr>
+                                <tr>
+                                    <td>10:15 - 11:45</td>
+                                    <td><strong>Investir en Afrique</strong></td>
+                                    <td>Jean-Pierre Okouwo</td>
+                                    <td>Salle Boileau</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00 - 13:30</td>
+                                    <td><strong>Design Thinking & Innovation</strong></td>
+                                    <td>Dr. David Adeleke</td>
+                                    <td>Salle Senghoor</td>
+                                </tr>
+                                <tr>
+                                    <td>14:30 - 16:00</td>
+                                    <td><strong>Marketing digital pour l'Afrique</strong></td>
+                                    <td>Fatou Ndiaye</td>
+                                    <td>Salle LatDior</td>
+                                </tr>
+                                <tr>
+                                    <td>16:15 - 18:00</td>
+                                    <td><strong>Pitch session : 5 startups</strong></td>
+                                    <td>Jury d'investisseurs</td>
+                                    <td>Grande Salle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Jour 3 -->
+                    <div class="tab-pane" id="day3" role="tabpanel">
+                        <h3>Jour 3 - Data & Future Tech</h3>
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Heure</th>
+                                    <th>Session</th>
+                                    <th>Intervenant</th>
+                                    <th>Salle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09:00 - 10:00</td>
+                                    <td><strong>Big Data pour le développement</strong></td>
+                                    <td>Sarah Aidara</td>
+                                    <td>Grande Salle</td>
+                                </tr>
+                                <tr>
+                                    <td>10:15 - 11:45</td>
+                                    <td><strong>Blockchain & transparence</strong></td>
+                                    <td>Ibrahim DaCruz</td>
+                                    <td>Salle Boileau</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00 - 13:30</td>
+                                    <td><strong>Cloud computing en Afrique</strong></td>
+                                    <td>Dr. Amina Diallo</td>
+                                    <td>Salle Boileau</td>
+                                </tr>
+                                <tr>
+                                    <td>14:30 - 16:00</td>
+                                    <td><strong>Cybersécurité : enjeux africains</strong></td>
+                                    <td>Sidy Diop</td>
+                                    <td>Salle Senghor</td>
+                                </tr>
+                                <tr>
+                                    <td>16:15 - 18:00</td>
+                                    <td><strong>Clôture & remise des prix</strong></td>
+                                    <td>Tous les intervenants</td>
+                                    <td>Grande Salle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION THÉMATIQUES  -->
+        <section class="thematics" aria-label="Thématiques de la conférence">
+            <div class="container">
+                <h2 class="section-title">Thématiques <span>abordées</span></h2>
+                <p class="section-subtitle">4 grands sujets au cœur de l'innovation africaine</p>
+                
+                <div class="thematics-grid">
+                    <article class="thematic-card">
+                        <div class="thematic-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <h3>IA & Tech</h3>
+                        <p>Intelligence artificielle, machine learning et technologies émergentes au service de l'Afrique</p>
+                    </article>
+                    <article class="thematic-card">
+                        <div class="thematic-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h3>Business</h3>
+                        <p>Entrepreneuriat, investissement, finance et stratégies business pour le marché africain</p>
+                    </article>
+                    <article class="thematic-card">
+                        <div class="thematic-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h3>Design</h3>
+                        <p>Design UX/UI, design thinking, innovation centrée sur l'humain et expérience utilisateur</p>
+                    </article>
+                    <article class="thematic-card">
+                        <div class="thematic-icon">
+                            <i class="bi bi-database"></i>
+                        </div>
+                        <h3>Data</h3>
+                        <p>Data science, analytics, big data et prise de décision basée sur les données en Afrique</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="footer">
+    <!--  FOOTER  -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>AfriConnect 2026</h4>
-                    <p>La conférence panafricaine qui façonne l'avenir de la technologie.</p>
+                    <h4><i class="bi bi-globe-americas"></i>AfriConnect 2026</h4>
+                    <p>La conférence panafricaine qui façonne l'avenir de la technologie en Afrique. Ensemble, innovons pour un continent connecté.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -67,19 +289,21 @@
                     <h4>Contact</h4>
                     <ul>
                         <li><i class="bi bi-geo-alt"></i> Dakar, Sénégal</li>
-                        <li><i class="bi bi-envelope"></i>unegalsena@africonnect.com</li>
+                        <li><i class="bi bi-envelope"></i>unnegalsena@africonnect.com</li>
+                        <li><i class="bi bi-telephone"></i> +221 33 848 63 61</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p><span id="currentYear">2026</span> AfriConnect Summit</p>
-                <button class="btn-back-to-top" aria-label="Retour en haut">
+                <p><span id="currentYear">2026</span> AfriConnect Summit. Tous droits réservés.</p>
+                <button class="btn-back-to-top" aria-label="Retour en haut de page">
                     <i class="bi bi-chevron-up"></i>
                 </button>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>

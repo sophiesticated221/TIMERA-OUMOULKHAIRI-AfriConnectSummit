@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AfriConnect Summit 2026 - La plus grande conférence tech panafricaine">
-    <title>AfriConnect Summit 2026</title>
+    <meta name="description" content="AfriConnect Summit 2026 - La plus grande conférence tech panafricaine réunissant développeurs, entrepreneurs et investisseurs du continent.">
+    <title>AfriConnect Summit 2026 - Accueil</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,8 @@
 </head>
 <body>
 
-    <header class="navbar">
+    <!--  HEADER / NAVBAR  -->
+    <header class="navbar" role="navigation" aria-label="Navigation principale">
         <nav class="navbar-container">
             <div class="navbar-brand">
                 <a href="index.html">
@@ -24,36 +25,232 @@
                     <span>AfriConnect <span class="brand-year">2026</span></span>
                 </a>
             </div>
-            <button class="navbar-toggler" aria-label="Menu">
+            
+            <button class="navbar-toggler" aria-label="Menu hamburger" aria-expanded="false">
                 <i class="bi bi-list"></i>
             </button>
+            
             <ul class="navbar-menu">
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="programme.html">Programme</a></li>
                 <li><a href="intervenants.html">Intervenants</a></li>
                 <li><a href="contact.html">Inscription</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Mode sombre">
+            
+            <button class="theme-toggle" aria-label="Basculer le mode sombre/clair">
                 <i class="bi bi-moon-fill"></i>
             </button>
         </nav>
     </header>
-
     <main>
-        <section class="hero">
+        
+        <!--  SECTION HERO  -->
+        <section class="hero" aria-label="Bannière principale de la conférence">
             <div class="hero-content">
-                <h1>AfriConnect Summit 2026</h1>
-                <p>La conférence tech panafricaine</p>
+                <div class="hero-badge">
+                    <i class="bi bi-calendar-event"></i>
+                    26-28 Novembre 2026 · Dakar, Sénégal
+                </div>
+                <h1 class="hero-title">
+                    L'avenir de la <span>Tech</span><br>
+                    se construit en <span>Afrique</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Rejoignez la plus grande conférence panafricaine qui réunit les innovateurs, 
+                    les entrepreneurs et les leaders technologiques du continent.
+                </p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary">
+                        <i class="bi bi-ticket-perforated"></i> S'inscrire
+                    </a>
+                    <a href="programme.html" class="btn btn-secondary">
+                        <i class="bi bi-calendar3"></i> Voir le programme
+                    </a>
+                </div>
+                
+                <!-- Compte à rebours -->
+                <div class="countdown" aria-label="Compte à rebours jusqu'à la conférence">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Jours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-scroll-indicator">
+                <span>Découvrir</span>
+                <i class="bi bi-chevron-down"></i>
             </div>
         </section>
+
+        <!--  SECTION CHIFFRES CLÉS  -->
+        <section class="stats" aria-label="Chiffres clés de la conférence">
+            <div class="container">
+                <h2 class="section-title">AfriConnect en <span>chiffres</span></h2>
+                <p class="section-subtitle">L'événement tech qui rassemble toute l'Afrique</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="bi bi-people"></i>
+                        <div class="stat-number" data-target="1200">0</div>
+                        <p class="stat-label">Participants</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="bi bi-microphone"></i>
+                        <div class="stat-number" data-target="48">0</div>
+                        <p class="stat-label">Intervenants</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="bi bi-calendar-check"></i>
+                        <div class="stat-number" data-target="3">0</div>
+                        <p class="stat-label">Jours de conférence</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="stat-number" data-target="12">0</div>
+                        <p class="stat-label">Pays représentés</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  SECTION POURQUOI PARTICIPER  -->
+        <section class="why-attend" aria-label="Pourquoi participer">
+            <div class="container">
+                <h2 class="section-title">Pourquoi <span>participer</span> ?</h2>
+                <p class="section-subtitle">3 raisons de rejoindre l'aventure AfriConnect</p>
+                
+                <div class="why-grid">
+                    <article class="why-card">
+                        <div class="why-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h3>Innovation & Inspiration</h3>
+                        <p>Découvrez les dernières tendances technologiques et laissez-vous inspirer par les esprits les plus brillants d'Afrique.</p>
+                    </article>
+                    <article class="why-card">
+                        <div class="why-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h3>Networking d'exception</h3>
+                        <p>Rencontrez des développeurs, entrepreneurs et investisseurs de tout le continent dans une ambiance conviviale.</p>
+                    </article>
+                    <article class="why-card">
+                        <div class="why-icon">
+                            <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <h3>Opportunités uniques</h3>
+                        <p>Accédez à des opportunités de financement, de partenariat et de recrutement au cœur de l'écosystème tech africain.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION INTERVENANTS VEDETTES  -->
+        <section class="featured-speakers" aria-label="Intervenants vedettes">
+            <div class="container">
+                <h2 class="section-title">Intervenants <span>vedettes</span></h2>
+                <p class="section-subtitle">Les experts qui feront l'événement</p>
+                
+                <div class="speakers-grid">
+                    <article class="speaker-card">
+                        <img src="images/imageAmina.jpg" alt="Dr. Amina Diallo" loading="lazy">
+                        <h3>Dr. Amina Diallo</h3>
+                        <p class="speaker-title">IA & Machine Learning</p>
+                        <p class="speaker-country"><i class="bi bi-geo-alt"></i> Sénégal</p>
+                        <a href="intervenants.html" class="btn btn-speaker">Voir le profil</a>
+                    </article>
+                    <article class="speaker-card">
+                        <img src="images/imageIbrahim.jpg" alt="Ibrahim DaCruz" loading="lazy">
+                        <h3>Ibrahim DaCruz</h3>
+                        <p class="speaker-title">Entrepreneuriat & Investissement</p>
+                        <p class="speaker-country"><i class="bi bi-geo-alt"></i>Angola</p>
+                        <a href="intervenants.html" class="btn btn-speaker">Voir le profil</a>
+                    </article>
+                    <article class="speaker-card">
+                        <img src="images/imageDavid.jpg" alt="Dr. David Adeleke" loading="lazy">
+                        <h3>Dr. David Adeleke</h3>
+                        <p class="speaker-title">Design & Innovation</p>
+                        <p class="speaker-country"><i class="bi bi-geo-alt"></i> Nigeria</p>
+                        <a href="intervenants.html" class="btn btn-speaker">Voir le profil</a>
+                    </article>
+                    <article class="speaker-card">
+                        <img src="images/imageSarah.jpg" alt="Sarah Aidara" loading="lazy">
+                        <h3>Sarah Aidara</h3>
+                        <p class="speaker-title">Data Science & Analytics</p>
+                        <p class="speaker-country"><i class="bi bi-geo-alt"></i>Mauritanie</p>
+                        <a href="intervenants.html" class="btn btn-speaker">Voir le profil</a>
+                    </article>
+                </div>
+                
+                <div class="speakers-cta">
+                    <a href="intervenants.html" class="btn btn-secondary">Voir tous les intervenants <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!--  SECTION SPONSORS -->
+        <section class="sponsors" aria-label="Sponsors">
+            <div class="container">
+                <h2 class="section-title">Nos <span>sponsors</span></h2>
+                <p class="section-subtitle">Ils soutiennent l'innovation africaine</p>
+                
+                <div class="sponsors-grid">
+                    <div class="sponsor sponsor-gold">
+                        <i class="bi bi-star-fill"></i>
+                        <span>SunuCorp</span>
+                        <div class="sponsor-logos">
+                            <span class="sponsor-name">TechAfrica</span>
+                            <span class="sponsor-name">InnovateHub</span>
+                            <span class="sponsor-name">DigitalSn</span>
+                        </div>
+                    </div>
+                    <div class="sponsor sponsor-silver">
+                        <i class="bi bi-star-fill"></i>
+                        <span>Silver</span>
+                        <div class="sponsor-logos">
+                            <span class="sponsor-name">DevSenegal</span>
+                            <span class="sponsor-name">CodeNigeria</span>
+                        </div>
+                    </div>
+                    <div class="sponsor sponsor-bronze">
+                        <i class="bi bi-star-fill"></i>
+                        <span>SENUM SA</span>
+                        <div class="sponsor-logos">
+                            <span class="sponsor-name">StartupDakar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="footer">
+    <!--FOOTER -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>AfriConnect 2026</h4>
-                    <p>La conférence panafricaine qui façonne l'avenir de la technologie.</p>
+                    <h4><i class="bi bi-globe-americas"></i>AfriConnect 2026</h4>
+                    <p>La conférence panafricaine qui façonne l'avenir de la technologie en Afrique. Ensemble, innovons pour un continent connecté.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -67,20 +264,22 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="bi bi-geo-alt"></i> Dakar, Senegal</li>
-                        <li><i class="bi bi-envelope"></i> unegalsena@africonnect.com</li>
+                        <li><i class="bi bi-geo-alt"></i> Dakar, Sénégal</li>
+                        <li><i class="bi bi-envelope"></i>unnegalsena@africonnect.com</li>
+                        <li><i class="bi bi-telephone"></i> +221 33 848 63 61</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p><span id="currentYear">2026</span> AfriConnect Summit</p>
-                <button class="btn-back-to-top" aria-label="Retour en haut">
+                <p><span id="currentYear">2026</span> AfriConnect Summit. Tous droits réservés.</p>
+                <button class="btn-back-to-top" aria-label="Retour en haut de page">
                     <i class="bi bi-chevron-up"></i>
                 </button>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>
