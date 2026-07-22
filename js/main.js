@@ -201,7 +201,7 @@
             return;
         }
         
-        // Calculer les jours, heures, minutes, secondes
+        // Calcule les jours, heures, minutes, secondes
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -217,4 +217,210 @@
     // Mettre à jour immédiatement puis toutes les secondes
     updateCountdown();
     setInterval(updateCountdown, 1000);
+})();
+// Gère l'affichage des onglets du programme (Jour 1, 2, 3)
+(function initTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    if (tabButtons.length === 0) return;
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Désactiver tous les boutons
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            
+            // Active le bouton cliqué
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+            
+            // Cache tous les panneaux
+            tabPanes.forEach(pane => {
+                pane.classList.remove('active');
+            });
+            
+            // Affiche le panneau correspondant
+            const dayId = this.getAttribute('data-day');
+            const targetPane = document.getElementById(dayId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
+    });
+})();
+// Filtre les cartes d'intervenants par thématique
+ 
+(function initFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const speakerCards = document.querySelectorAll('.speaker-full-card');
+    
+    if (filterButtons.length === 0 || speakerCards.length === 0) return;
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Désactiver tous les boutons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Activer le bouton cliqué
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Filtrer les cartes
+            speakerCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'block';
+                    // Ajouter une animation d'apparition
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+})();
+
+//  Valide le formulaire d'inscription avec retour visuel
+(function initFormValidation() {
+    const form = document.getElementById('registrationForm');
+    const successMessage = document.getElementById('formSuccess');
+    
+    if (!form) return;
+    
+    // Écoute la soumission du formulaire
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Valide tous les champs
+        const isValid = validateAllFields();
+        
+        if (isValid) {
+            // Affiche le message de succès
+            successMessage.style.display = 'block';
+            
+            // Réinitialise le formulaire après 3 secondes
+            setTimeout(() => {
+                form.reset();
+                successMessage.style.display = 'none';
+                // Enleve les classes de validation
+                document.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('success', 'error');
+                    const errorMsg = group.querySelector('.error-message');
+                    if (errorMsg) errorMsg.textContent = '';
+                });
+            }, 3000);
+        }
+    });
+    
+    // Valide tous les champs du formulaire
+    function validateAllFields() {
+        let isValid = true;
+        
+        // Valider le nom
+        const fullname = document.getElementById('fullname');
+        if (!validateField(fullname, value => value.trim().length >= 2, 'Le nom doit contenir au moins 2 caractères')) {
+            isValid = false;
+        }
+        
+        // Valider l'email
+        const email = document.getElementById('email');
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!validateField(email, value => emailRegex.test(value.trim()), 'Veuillez entrer un email valide')) {
+            isValid = false;
+        }
+        
+        // Valider le téléphone (minimum 8 chiffres)
+        const phone = document.getElementById('phone');
+        const phoneRegex = /^[0-9]{8,}$/;
+        if (!validateField(phone, value => phoneRegex.test(value.trim().replace(/[^0-9]/g, '')), 'Le téléphone doit contenir au moins 8 chiffres')) {
+            isValid = false;
+        }
+        
+        // Valider le type de participation
+        const participation = document.getElementById('participation');
+        if (!validateField(participation, value => value !== '', 'Veuillez sélectionner un type de participation')) {
+            isValid = false;
+        }
+        
+        // Valider le pays
+        const country = document.getElementById('country');
+        if (!validateField(country, value => value !== '', 'Veuillez sélectionner un pays')) {
+            isValid = false;
+        }
+        
+        // Valider le message
+        const message = document.getElementById('message');
+        if (!validateField(message, value => value.trim().length >= 20, 'Le message doit contenir au moins 20 caractères')) {
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+    //  Valide un champ individuel
+    function validateField(field, validator, errorMessage) {
+        const value = field.value;
+        const formGroup = field.closest('.form-group');
+        const errorMsg = formGroup.querySelector('.error-message');
+        
+        if (validator(value)) {
+            formGroup.classList.remove('error');
+            formGroup.classList.add('success');
+            if (errorMsg) errorMsg.textContent = '';
+            return true;
+        } else {
+            formGroup.classList.remove('success');
+            formGroup.classList.add('error');
+            if (errorMsg) errorMsg.textContent = errorMessage;
+            return false;
+        }
+    }
+    
+    // Validation en temps réel au changement de champ
+    document.querySelectorAll('#registrationForm input, #registrationForm select, #registrationForm textarea').forEach(field => {
+        field.addEventListener('blur', function() {
+            validateFieldOnBlur(this);
+        });
+        
+        field.addEventListener('input', function() {
+            // Si le champ a déjà été validé, le revalider
+            if (this.closest('.form-group').classList.contains('success') || 
+                this.closest('.form-group').classList.contains('error')) {
+                validateFieldOnBlur(this);
+            }
+        });
+    });
+    
+    function validateFieldOnBlur(field) {
+        const id = field.id;
+        
+        switch(id) {
+            case 'fullname':
+                validateField(field, value => value.trim().length >= 2, 'Le nom doit contenir au moins 2 caractères');
+                break;
+            case 'email':
+                const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                validateField(field, value => emailRegex.test(value.trim()), 'Veuillez entrer un email valide');
+                break;
+            case 'phone':
+                const phoneRegex = /^[0-9]{8,}$/;
+                validateField(field, value => phoneRegex.test(value.trim().replace(/[^0-9]/g, '')), 'Le téléphone doit contenir au moins 8 chiffres');
+                break;
+            case 'participation':
+                validateField(field, value => value !== '', 'Veuillez sélectionner un type de participation');
+                break;
+            case 'country':
+                validateField(field, value => value !== '', 'Veuillez sélectionner un pays');
+                break;
+            case 'message':
+                validateField(field, value => value.trim().length >= 20, 'Le message doit contenir au moins 20 caractères');
+                break;
+        }
+    }
 })();
