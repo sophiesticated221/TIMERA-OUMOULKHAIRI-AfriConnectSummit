@@ -424,3 +424,76 @@
         }
     }
 })();
+// Affiche le bouton retour en haut après défilement
+//   Remonte en douceur au clic
+(function initBackToTop() {
+    const backButton = document.querySelector('.btn-back-to-top');
+    
+    if (!backButton) return;
+    
+    // Vérifie la position au chargement
+    checkScrollPosition();
+    
+    // Écoute le défilement
+    window.addEventListener('scroll', checkScrollPosition);
+    
+    // Écoute le clic
+    backButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Vérifie la position de défilement
+    function checkScrollPosition() {
+        if (window.scrollY > 300) {
+            backButton.classList.add('visible');
+        } else {
+            backButton.classList.remove('visible');
+        }
+    }
+})();
+
+// met l'année courante dans tous les footers
+(function initDynamicYear() {
+    const yearElements = document.querySelectorAll('#currentYear');
+    const currentYear = new Date().getFullYear();
+    
+    yearElements.forEach(element => {
+        element.textContent = currentYear;
+    });
+})();
+
+// Met en évidence le lien de la page actuelle, gère également le changement de page
+(function initActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navbar-menu a');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+})();
+
+// Ferme le menu hamburger lorsque l'utilisateur clique sur un lien (pour la navigation sur mobile)
+(function initMenuCloseOnNav() {
+    const menuLinks = document.querySelectorAll('.navbar-menu a');
+    const menu = document.querySelector('.navbar-menu');
+    const toggler = document.querySelector('.navbar-toggler');
+    
+    if (!menuLinks.length || !menu || !toggler) return;
+    
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menu.classList.remove('open');
+            toggler.setAttribute('aria-expanded', 'false');
+            const icon = toggler.querySelector('i');
+            if (icon) icon.className = 'bi bi-list';
+        });
+    });
+})();
